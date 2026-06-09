@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDH Group — People-first capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --evergreen:#163127;
+    --evergreen-deep:#0F241C;
+    --evergreen-line:#2C4C3F;
+    --paper:#F1EEE3;
+    --paper-warm:#EDE9DC;
+    --ink:#1B231E;
+    --ink-soft:#535C53;
+    --brass:#BC8F42;
+    --brass-bright:#D6A954;
+    --paper-on-green:#EFEADC;
+    --dim-on-green:#A6B3A6;
+    --display:"Fraunces",Georgia,"Times New Roman",serif;
+    --body:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--brass);color:var(--evergreen-deep)}
+
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+
+  .eyebrow{
+    font-family:var(--body);
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:absolute;top:0;left:0;right:0;z-index:10;
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:30px 32px;max-width:1160px;margin:0 auto;
+  }
+  .mark{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:1.15rem;
+    letter-spacing:.14em;
+    color:var(--paper-on-green);
+    text-decoration:none;
+    font-variation-settings:"opsz" 30;
+  }
+  .mark span{color:var(--brass-bright)}
+  .nav-link{
+    font-size:.82rem;font-weight:600;letter-spacing:.04em;
+    color:var(--paper-on-green);text-decoration:none;
+    padding-bottom:3px;border-bottom:1px solid transparent;
+    transition:border-color .25s ease,opacity .25s ease;
+  }
+  .nav-link:hover{border-color:var(--brass-bright)}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--evergreen);
+    color:var(--paper-on-green);
+    position:relative;overflow:hidden;
+    padding:200px 0 130px;
+  }
+  .hero::before{
+    /* faint paper grain for material warmth */
+    content:"";position:absolute;inset:0;opacity:.05;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .hero::after{
+    /* soft brass glow lower-right */
+    content:"";position:absolute;right:-12%;bottom:-30%;width:60%;height:90%;
+    background:radial-gradient(closest-side,rgba(188,143,66,.18),transparent 70%);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .hero .eyebrow{color:var(--brass-bright);margin-bottom:34px;opacity:0;animation:rise .9s .1s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero h1{
+    font-family:var(--display);
+    font-weight:500;
+    font-variation-settings:"opsz" 144;
+    font-size:clamp(3.4rem,9vw,7.4rem);
+    line-height:.96;
+    letter-spacing:-.02em;
+    max-width:14ch;
+    margin-bottom:36px;
+  }
+  .hero h1 .word{display:inline-block;opacity:0;animation:rise 1s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero h1 .word:nth-child(1){animation-delay:.18s}
+  .hero h1 .word:nth-child(2){animation-delay:.30s;font-style:italic;font-weight:400;color:var(--brass-bright)}
+  .hero p.lede{
+    font-size:clamp(1.12rem,1.7vw,1.4rem);
+    line-height:1.55;
+    max-width:33ch;
+    color:var(--paper-on-green);
+    margin-bottom:54px;
+    opacity:0;animation:rise 1s .5s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .pillars{
+    display:flex;flex-wrap:wrap;gap:14px 30px;align-items:center;
+    opacity:0;animation:rise 1s .7s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .pillars span{
+    font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--dim-on-green);
+  }
+  .pillars .dot{width:5px;height:5px;border-radius:50%;background:var(--brass);display:inline-block}
+
+  @keyframes rise{to{opacity:1;transform:none}}
+  .hero .eyebrow,.hero h1 .word,.hero p.lede,.pillars{transform:translateY(18px)}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:120px 0}
+  .section-label{color:var(--brass);margin-bottom:30px}
+  .section-label.on-green{color:var(--brass-bright)}
+
+  /* ---------- THESIS / MANIFESTO ---------- */
+  .thesis{border-bottom:1px solid rgba(27,35,30,.1)}
+  .thesis .big{
+    font-family:var(--display);
+    font-weight:400;
+    font-variation-settings:"opsz" 90;
+    font-size:clamp(1.8rem,4vw,3.15rem);
+    line-height:1.18;
+    letter-spacing:-.01em;
+    max-width:20ch;
+  }
+  .thesis .big em{font-style:italic;color:var(--brass)}
+  .thesis .note{
+    margin-top:38px;max-width:46ch;font-size:1.06rem;color:var(--ink-soft);
+  }
+
+  /* ---------- HORIZON DEVICE ---------- */
+  .horizon{background:var(--paper-warm);border-bottom:1px solid rgba(27,35,30,.1)}
+  .horizon h2{
+    font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 80;
+    font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.12;letter-spacing:-.01em;
+    max-width:18ch;margin-bottom:50px;
+  }
+  .diagram{width:100%;height:auto;display:block}
+  .dia-row-label{font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;fill:var(--ink-soft)}
+  .dia-pt{font:600 13px/1 var(--body);letter-spacing:.02em;fill:var(--ink)}
+  .dia-pt-dim{font:500 13px/1 var(--body);letter-spacing:.02em;fill:var(--ink-soft)}
+  .dia-tick{font:500 11px/1 var(--body);fill:var(--ink-soft)}
+  .horizon .caption{
+    margin-top:44px;max-width:52ch;font-size:1.06rem;color:var(--ink-soft);
+  }
+  .horizon .caption strong{color:var(--ink);font-weight:600}
+
+  /* ---------- APPROACH ---------- */
+  .approach{border-bottom:1px solid rgba(27,35,30,.1)}
+  .moves{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:18px}
+  .move h3{
+    font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 60;
+    font-size:clamp(1.5rem,2.6vw,2.05rem);line-height:1.1;letter-spacing:-.01em;
+    margin-bottom:20px;
+  }
+  .move .num{
+    display:block;font-family:var(--body);font-weight:600;font-size:.8rem;
+    letter-spacing:.2em;color:var(--brass);margin-bottom:18px;
+  }
+  .move p{font-size:1.05rem;color:var(--ink-soft);max-width:42ch}
+  .approach .closer{
+    margin-top:70px;padding-top:40px;border-top:1px solid rgba(27,35,30,.12);
+    font-family:var(--display);font-style:italic;font-weight:400;
+    font-size:clamp(1.35rem,2.6vw,1.95rem);line-height:1.3;max-width:30ch;
+  }
+
+  /* ---------- FIT ---------- */
+  .fit h2{
+    font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 80;
+    font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.12;letter-spacing:-.01em;
+    max-width:16ch;margin-bottom:50px;
+  }
+  .fit ul{list-style:none;display:grid;gap:4px;max-width:760px}
+  .fit li{
+    display:flex;gap:22px;align-items:baseline;
+    padding:26px 0;border-top:1px solid rgba(27,35,30,.12);
+    font-size:clamp(1.05rem,1.8vw,1.28rem);line-height:1.4;
+  }
+  .fit li:last-child{border-bottom:1px solid rgba(27,35,30,.12)}
+  .fit .diamond{
+    flex:0 0 auto;width:8px;height:8px;transform:rotate(45deg);
+    background:var(--brass);margin-top:.55em;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--evergreen);color:var(--paper-on-green);
+    position:relative;overflow:hidden;padding:130px 0 60px;
+  }
+  .contact::after{
+    content:"";position:absolute;left:-10%;top:-40%;width:55%;height:100%;
+    background:radial-gradient(closest-side,rgba(188,143,66,.16),transparent 70%);pointer-events:none;
+  }
+  .contact .wrap{position:relative;z-index:1}
+  .contact h2{
+    font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 110;
+    font-size:clamp(2.1rem,5vw,3.7rem);line-height:1.04;letter-spacing:-.015em;
+    max-width:16ch;margin-bottom:34px;
+  }
+  .contact p{font-size:1.12rem;max-width:42ch;color:var(--paper-on-green);margin-bottom:46px}
+  .cta{
+    display:inline-flex;align-items:center;gap:14px;
+    background:var(--brass);color:var(--evergreen-deep);
+    font-weight:600;font-size:1rem;letter-spacing:.01em;
+    text-decoration:none;padding:18px 30px;border-radius:2px;
+    transition:background .25s ease,transform .25s ease;
+  }
+  .cta:hover{background:var(--brass-bright);transform:translateY(-2px)}
+  .cta .arrow{transition:transform .25s ease}
+  .cta:hover .arrow{transform:translateX(4px)}
+  .footer-line{
+    margin-top:110px;padding-top:30px;border-top:1px solid var(--evergreen-line);
+    display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center;
+    font-size:.82rem;color:var(--dim-on-green);
+  }
+  .footer-line .mono{font-family:var(--display);letter-spacing:.12em;color:var(--paper-on-green)}
+  .footer-line .mono b{color:var(--brass-bright);font-weight:600}
+
+  /* ---------- SECTORS ---------- */
+  .sectors{background:var(--paper-warm);border-bottom:1px solid rgba(27,35,30,.1)}
+  .sectors h2{
+    font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 80;
+    font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.12;letter-spacing:-.01em;
+    max-width:16ch;margin-bottom:22px;
+  }
+  .sectors .intro{max-width:50ch;font-size:1.06rem;color:var(--ink-soft);margin-bottom:54px}
+  .sector-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    background:rgba(27,35,30,.14);border:1px solid rgba(27,35,30,.14);
+  }
+  .sector{background:var(--paper-warm);padding:42px 40px}
+  .sector .head{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .sector .diamond{
+    flex:0 0 auto;width:8px;height:8px;transform:rotate(45deg);background:var(--brass);
+  }
+  .sector h3{
+    font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 50;
+    font-size:1.45rem;line-height:1.05;letter-spacing:-.01em;
+  }
+  .sector .trades{list-style:none;display:grid;gap:11px}
+  .sector .trades li{font-size:1.02rem;color:var(--ink-soft);line-height:1.35}
+
+  /* reveal-on-scroll */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:760px){
+    .wrap{padding:0 22px}
+    .nav-inner{padding:22px}
+    .hero{padding:150px 0 90px}
+    section{padding:84px 0}
+    .moves{grid-template-columns:1fr;gap:48px}
+    .sector-grid{grid-template-columns:1fr}
+    .nav-link{display:none}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .hero .eyebrow,.hero h1 .word,.hero p.lede,.pillars,.reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="mark">CDH<span>·</span>GROUP</a>
+    <a href="#contact" class="nav-link">Get in touch</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">A personal holding company</p>
+    <h1><span class="word">People-first</span> <span class="word">capital.</span></h1>
+    <p class="lede">We buy good small businesses and keep them — backing the people who built them, for as long as they'll have us. No fund. No clock. No exit on the calendar.</p>
+    <div class="pillars">
+      <span>People first</span><span class="dot"></span>
+      <span>Long holds</span><span class="dot"></span>
+      <span>No exit</span>
+    </div>
+  </div>
+</header>
+
+<section class="thesis">
+  <div class="wrap">
+    <p class="eyebrow section-label reveal">The thesis</p>
+    <p class="big reveal">Most firms buy a business already planning the day they'll sell it. We buy a business <em>planning to keep it.</em></p>
+    <p class="note reveal">CDH Group isn't private equity. There's no fund behind it, no investors waiting to be paid back on a schedule, no five-year exit looming at the end. It's permanent capital, owned and run for the long term — which changes every decision that follows.</p>
+  </div>
+</section>
+
+<section class="horizon">
+  <div class="wrap">
+    <p class="eyebrow section-label reveal">The hold</p>
+    <h2 class="reveal">Everyone else is already planning their exit.</h2>
+    <div class="reveal">
+      <svg class="diagram" viewBox="0 0 1000 300" role="img" aria-label="A timeline comparing a typical buyer, whose ownership ends at an exit around year five, with CDH Group, whose ownership continues indefinitely past the edge of the chart.">
+        <!-- TYPICAL BUYER ROW -->
+        <text class="dia-row-label" x="0" y="70">Typical buyer</text>
+        <line x1="0" y1="92" x2="640" y2="92" stroke="#C7C0AC" stroke-width="2"/>
+        <circle cx="0" cy="92" r="5.5" fill="#8A8470"/>
+        <text class="dia-pt-dim" x="0" y="124">Acquire</text>
+        <!-- exit flag -->
+        <line x1="640" y1="62" x2="640" y2="112" stroke="#9A7C44" stroke-width="2"/>
+        <polygon points="640,62 690,72 640,82" fill="#9A7C44"/>
+        <text class="dia-pt" x="612" y="48" fill="#7A6230">Exit · ~year 5</text>
+        <text class="dia-tick" x="612" y="138">line stops here</text>
+
+        <!-- CDH ROW -->
+        <text class="dia-row-label" x="0" y="212" fill="#163127">CDH Group</text>
+        <line id="cdhline" x1="0" y1="234" x2="1000" y2="234" stroke="#163127" stroke-width="3"/>
+        <circle cx="0" cy="234" r="6" fill="#163127"/>
+        <text class="dia-pt" x="0" y="266">Acquire</text>
+        <!-- year ticks -->
+        <g stroke="#A9B2A4" stroke-width="1.5">
+          <line x1="250" y1="228" x2="250" y2="240"/>
+          <line x1="500" y1="228" x2="500" y2="240"/>
+          <line x1="750" y1="228" x2="750" y2="240"/>
+        </g>
+        <text class="dia-tick" x="240" y="266">yr 5</text>
+        <text class="dia-tick" x="490" y="266">yr 10</text>
+        <text class="dia-tick" x="740" y="266">yr 20</text>
+        <!-- continuation arrow -->
+        <polygon id="cdharrow" points="982,226 1000,234 982,242" fill="#BC8F42"/>
+        <text class="dia-pt" x="852" y="212" fill="#BC8F42" font-style="italic" font-family="Fraunces, serif" font-size="16">still here</text>
+      </svg>
+    </div>
+    <p class="caption reveal"><strong>A fund has to return money on a schedule, so eventually it has to sell.</strong> We don't run a fund. The clock that pushes most owners toward a rushed, impersonal outcome simply isn't in the room.</p>
+  </div>
+</section>
+
+<section class="approach">
+  <div class="wrap">
+    <p class="eyebrow section-label reveal">What we actually do</p>
+    <div class="moves">
+      <div class="move reveal">
+        <span class="num">01 — Add</span>
+        <h3>Pour gasoline on what's already working.</h3>
+        <p>Every good business is good for a reason. We find that reason and fund more of it — the people, the products, and the relationships that already win. Growth comes first, and it comes by addition, not subtraction.</p>
+      </div>
+      <div class="move reveal">
+        <span class="num">02 — Optimize</span>
+        <h3>Quietly fix what isn't.</h3>
+        <p>Then, patiently, we clear what's been holding the business back: better systems, less friction, more room to breathe. No slash-and-burn. No outside playbook dropped on top of people who already know their craft.</p>
+      </div>
+    </div>
+    <p class="closer reveal">The people who built it keep building it. The name stays on the door. That's the whole point.</p>
+  </div>
+</section>
+
+<section class="sectors">
+  <div class="wrap">
+    <p class="eyebrow section-label reveal">Where we focus</p>
+    <h2 class="reveal">Essential trades, built to keep running.</h2>
+    <p class="intro reveal">We specialize in the unglamorous, everyday businesses communities can't do without — built on reputation, repeat customers, and people who take pride in the work. These are the sectors we know, and where we keep buying.</p>
+    <div class="sector-grid">
+      <div class="sector reveal">
+        <div class="head"><span class="diamond"></span><h3>Home services</h3></div>
+        <ul class="trades">
+          <li>Garage door repair &amp; installation</li>
+          <li>Pest control</li>
+          <li>Residential cleaning</li>
+        </ul>
+      </div>
+      <div class="sector reveal">
+        <div class="head"><span class="diamond"></span><h3>Commercial services</h3></div>
+        <ul class="trades">
+          <li>Vent cleaning</li>
+          <li>Commercial kitchen vent cleaning</li>
+          <li>Electrical contracting</li>
+        </ul>
+      </div>
+      <div class="sector reveal">
+        <div class="head"><span class="diamond"></span><h3>Waste &amp; hauling</h3></div>
+        <ul class="trades">
+          <li>Collection, removal &amp; hauling</li>
+        </ul>
+      </div>
+      <div class="sector reveal">
+        <div class="head"><span class="diamond"></span><h3>MSP / IT</h3></div>
+        <ul class="trades">
+          <li>Managed IT &amp; technology services</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fit">
+  <div class="wrap">
+    <p class="eyebrow section-label reveal">Who this is for</p>
+    <h2 class="reveal">If this sounds like your business, we should talk.</h2>
+    <ul>
+      <li class="reveal"><span class="diamond"></span><span>Built over years, not quarters — profitable, durable, and run with real care.</span></li>
+      <li class="reveal"><span class="diamond"></span><span>An owner ready to step back without selling out the people they'd leave behind.</span></li>
+      <li class="reveal"><span class="diamond"></span><span>A team and a reputation worth keeping exactly as they are.</span></li>
+      <li class="reveal"><span class="diamond"></span><span>Somewhere we can build a real, lasting relationship — not a transaction.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow section-label on-green reveal">Legacy</p>
+    <h2 class="reveal">What you built deserves to outlast the sale.</h2>
+    <p class="reveal">If you've spent a career building something and you care who you hand it to, start a conversation. No brokers. No auction. No pressure.</p>
+    <a class="cta reveal" href="mailto:hello@cdhgrp.com?subject=My%20business">Start a conversation <span class="arrow">→</span></a>
+    <div class="footer-line">
+      <span class="mono">CDH<b> · </b>GROUP</span>
+      <span>People-first capital · Long holds · Built to last</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Scroll reveals
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.18});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    // small stagger for siblings
+    el.style.transitionDelay = (Math.min(i,3)*70)+'ms';
+    io.observe(el);
+  });
+
+  // Animate the CDH horizon line drawing past the edge
+  const line = document.getElementById('cdhline');
+  const arrow = document.getElementById('cdharrow');
+  if(line && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const len = line.getTotalLength();
+    line.style.strokeDasharray = len;
+    line.style.strokeDashoffset = len;
+    arrow.style.opacity = 0;
+    const lineIO = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          line.style.transition='stroke-dashoffset 1.6s cubic-bezier(.4,.05,.2,1)';
+          line.style.strokeDashoffset='0';
+          arrow.style.transition='opacity .5s ease 1.3s';
+          arrow.style.opacity=1;
+          lineIO.unobserve(e.target);
+        }
+      });
+    },{threshold:.4});
+    lineIO.observe(line);
+  }
+</script>
+
+</body>
+</html>
