@@ -441,6 +441,18 @@
   .form-alt a:hover{border-color:var(--brass-bright)}
   @media(max-width:560px){.lead-form .row{grid-template-columns:1fr}}
 
+  /* ---------- GUIDE PROMO ---------- */
+  .guide-promo{background:var(--paper-warm);border-bottom:1px solid rgba(27,35,30,.1)}
+  .guide-promo .inner{display:grid;grid-template-columns:150px 1fr auto;gap:40px;align-items:center;max-width:920px}
+  .guide-promo .cover{width:150px;border-radius:3px;box-shadow:0 16px 34px rgba(0,0,0,.22);display:block}
+  .guide-promo h2{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 60;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.1;letter-spacing:-.01em;color:var(--ink);margin-bottom:12px}
+  .guide-promo p{font-size:1.02rem;color:var(--ink-soft);max-width:46ch}
+  .guide-promo .btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:12px;background:var(--evergreen);color:var(--paper-on-green);font-weight:600;font-size:.98rem;text-decoration:none;padding:16px 26px;border-radius:2px;transition:background .25s,transform .25s;white-space:nowrap}
+  .guide-promo .btn:hover{background:var(--evergreen-deep);transform:translateY(-2px)}
+  .guide-promo .btn .arrow{transition:transform .25s}
+  .guide-promo .btn:hover .arrow{transform:translateX(4px)}
+  @media(max-width:760px){.guide-promo .inner{grid-template-columns:1fr;gap:24px}.guide-promo .cover{width:118px}}
+
   /* reveal-on-scroll */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
@@ -467,7 +479,10 @@
 <nav>
   <div class="nav-inner">
     <a href="#top" class="mark">CDH<span>·</span>GROUP</a>
-    <a href="#contact" class="nav-link">Get in touch</a>
+    <span style="display:flex;gap:28px;align-items:center">
+      <a href="/guide/" class="nav-link">Free guide</a>
+      <a href="#contact" class="nav-link">Get in touch</a>
+    </span>
   </div>
 </nav>
 
@@ -631,6 +646,20 @@
         <summary>I'm thinking about selling. How do I start a conversation? <span class="sign">+</span></summary>
         <p class="answer">Fill out the short form below, or email us directly. No brokers, no auction, no pressure — just a direct conversation with the people who'd actually own and care for what you built.</p>
       </details>
+    </div>
+  </div>
+</section>
+
+<section class="guide-promo">
+  <div class="wrap">
+    <div class="inner reveal">
+      <img class="cover" src="guide/guide-cover.png" alt="The Local Owner's Exit Guide cover" width="150" height="194">
+      <div>
+        <p class="eyebrow section-label" style="margin-bottom:14px">Free guide</p>
+        <h2>Thinking about selling one day?</h2>
+        <p>Get <strong>The Local Owner's Exit Guide</strong> — what your business is worth, the value drivers that raise your price, and how to sell on your terms. Free, no catch.</p>
+      </div>
+      <a class="btn" href="/guide/">Get the guide <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
