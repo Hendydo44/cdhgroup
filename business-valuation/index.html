@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>What Is My Business Worth? Free Business Valuation Calculator</title>
+<meta name="description" content="Get an instant, free estimate of what your small business is worth. Built for owners of home-services, trades, and local businesses — no broker, no pressure, under a minute.">
+<link rel="canonical" href="https://cdhgrp.com/business-valuation/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#163127">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23163127'/%3E%3Crect x='13' y='13' width='8' height='8' transform='rotate(45 17 17)' fill='%23D6A954'/%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CDH Group">
+<meta property="og:title" content="What's Your Business Worth? Free Instant Estimate">
+<meta property="og:description" content="An instant business valuation estimate in under a minute. Built for local business owners. No broker, no pressure.">
+<meta property="og:url" content="https://cdhgrp.com/business-valuation/">
+<meta property="og:image" content="https://cdhgrp.com/business-valuation/valuation-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What's Your Business Worth? Free Instant Estimate">
+<meta name="twitter:description" content="An instant business valuation estimate in under a minute. No broker, no pressure.">
+<meta name="twitter:image" content="https://cdhgrp.com/business-valuation/valuation-og.png">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Business Valuation Calculator",
+  "url":"https://cdhgrp.com/business-valuation/",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Web",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "description":"A free instant business valuation estimator for owners of home-services, trades, and local businesses.",
+  "publisher":{"@type":"Organization","name":"CDH Group","url":"https://cdhgrp.com/"}
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --evergreen:#163127;--evergreen-deep:#0F241C;--evergreen-line:#2C4C3F;
+    --paper:#F1EEE3;--paper-warm:#EDE9DC;--ink:#1B231E;--ink-soft:#535C53;
+    --brass:#BC8F42;--brass-bright:#D6A954;--paper-on-green:#EFEADC;--dim-on-green:#A6B3A6;
+    --display:"Fraunces",Georgia,serif;--body:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--evergreen);color:var(--paper-on-green);line-height:1.6;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--brass);color:var(--evergreen-deep)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  .eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+
+  nav .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:28px 32px;max-width:1120px;margin:0 auto}
+  .mark{font-family:var(--display);font-weight:600;font-size:1.1rem;letter-spacing:.14em;color:var(--paper-on-green);text-decoration:none}
+  .mark span{color:var(--brass-bright)}
+  .nav-tag{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--dim-on-green)}
+
+  .hero{position:relative;overflow:hidden;padding:70px 0 100px}
+  .hero::after{content:"";position:absolute;right:-14%;bottom:-30%;width:60%;height:95%;background:radial-gradient(closest-side,rgba(188,143,66,.16),transparent 70%);pointer-events:none}
+  .grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 460px;gap:56px;align-items:start}
+  .copy .eyebrow{color:var(--brass-bright);margin-bottom:24px}
+  .copy h1{font-family:var(--display);font-weight:500;font-variation-settings:"opsz" 130;font-size:clamp(2.6rem,5.2vw,4.3rem);line-height:1.0;letter-spacing:-.02em;margin-bottom:24px}
+  .copy h1 em{font-style:italic;font-weight:400;color:var(--brass-bright)}
+  .copy .lede{font-size:1.15rem;line-height:1.55;color:var(--paper-on-green);max-width:46ch;margin-bottom:32px}
+  .trust{list-style:none;display:grid;gap:12px;margin-bottom:30px}
+  .trust li{display:flex;gap:14px;align-items:flex-start;font-size:1.02rem;color:var(--paper-on-green)}
+  .trust .diamond{flex:0 0 auto;width:7px;height:7px;transform:rotate(45deg);background:var(--brass);margin-top:.5em}
+  .microcopy{font-size:.9rem;color:var(--dim-on-green);max-width:44ch}
+
+  /* ---- calculator card ---- */
+  .card{background:var(--paper);color:var(--ink);border-radius:8px;padding:32px 30px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .card h2{font-family:var(--display);font-weight:500;font-size:1.5rem;line-height:1.1;letter-spacing:-.01em;color:var(--evergreen);margin-bottom:6px}
+  .card .step{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
+  .field{display:grid;gap:7px;margin-bottom:15px}
+  .field label{font-size:.7rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft)}
+  .field .hint{font-size:.72rem;letter-spacing:0;text-transform:none;color:#8A8470;font-weight:400}
+  .field input,.field select{font-family:var(--body);font-size:1rem;color:var(--ink);background:#fff;border:1px solid #D8D2C0;border-radius:2px;padding:12px 13px;width:100%;transition:border-color .2s}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--brass)}
+  .field select{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23535C53' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px}
+  .money{position:relative}
+  .money::before{content:"$";position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#8A8470;font-size:1rem}
+  .money input{padding-left:24px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .divider{border:none;border-top:1px solid #E1DAC7;margin:20px 0 16px}
+  .gate-note{font-size:.8rem;color:var(--ink-soft);margin-bottom:14px}
+  .card button{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--brass);color:var(--evergreen-deep);border:none;cursor:pointer;font-family:var(--body);font-weight:600;font-size:1.02rem;padding:16px 26px;border-radius:2px;transition:background .25s,transform .25s}
+  .card button:hover{background:var(--brass-bright);transform:translateY(-2px)}
+  .card button:disabled{opacity:.6;cursor:default;transform:none}
+  .card .arrow{transition:transform .25s}
+  .card button:hover .arrow{transform:translateX(4px)}
+  .err{color:#9A3B2E;font-size:.85rem;margin-top:10px;display:none}
+  .privacy{font-size:.78rem;color:#8A8470;margin-top:14px;text-align:center}
+
+  /* ---- result ---- */
+  .result{display:none}
+  .result .eyebrow{color:var(--brass);margin-bottom:14px}
+  .result .range{font-family:var(--display);font-weight:500;font-size:clamp(2rem,4.5vw,2.9rem);line-height:1.05;color:var(--evergreen);letter-spacing:-.01em;margin-bottom:8px}
+  .result .mult{font-size:.95rem;color:var(--ink-soft);margin-bottom:20px}
+  .result .interp{font-size:1rem;color:var(--ink);margin-bottom:18px}
+  .levers{background:var(--paper-warm);border-left:3px solid var(--brass);padding:16px 18px;border-radius:2px;margin-bottom:20px}
+  .levers h3{font-size:.85rem;font-weight:600;letter-spacing:.02em;color:var(--evergreen);margin-bottom:8px}
+  .levers ul{margin:0;padding-left:18px}
+  .levers li{font-size:.95rem;color:var(--ink-soft);margin-bottom:5px}
+  .result .cta{display:inline-flex;align-items:center;gap:10px;background:var(--evergreen);color:var(--paper-on-green);font-weight:600;text-decoration:none;padding:15px 24px;border-radius:2px;transition:background .25s,transform .25s;margin-bottom:12px}
+  .result .cta:hover{background:var(--evergreen-deep);transform:translateY(-2px)}
+  .result .secondary{display:block;font-size:.92rem;color:var(--ink-soft);margin-top:6px}
+  .result .secondary a{color:var(--brass);text-decoration:none;border-bottom:1px solid transparent}
+  .result .secondary a:hover{border-color:var(--brass)}
+  .result .recalc{display:inline-block;margin-top:14px;font-size:.85rem;color:var(--ink-soft);background:none;border:none;cursor:pointer;text-decoration:underline;width:auto;padding:0}
+  .result .recalc:hover{color:var(--evergreen);transform:none}
+  .disclaimer{font-size:.75rem;color:#8A8470;line-height:1.45;margin-top:18px;border-top:1px solid #E1DAC7;padding-top:14px}
+
+  footer{border-top:1px solid var(--evergreen-line)}
+  .foot-inner{max-width:1120px;margin:0 auto;padding:26px 32px;display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:.82rem;color:var(--dim-on-green)}
+  .foot-inner .mono{font-family:var(--display);letter-spacing:.12em;color:var(--paper-on-green)}
+  .foot-inner a{color:var(--brass-bright);text-decoration:none}
+
+  @media(max-width:880px){
+    .grid{grid-template-columns:1fr;gap:40px}
+    .hero{padding:40px 0 70px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://cdhgrp.com/" class="mark">CDH<span>·</span>GROUP</a>
+    <span class="nav-tag">Free valuation tool</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap grid">
+    <div class="copy">
+      <p class="eyebrow">Free · Instant · No obligation</p>
+      <h1>What's your business <em>really worth?</em></h1>
+      <p class="lede">If you've ever wondered what your business could sell for, you shouldn't have to hire someone to find out. Answer a few questions and get a realistic estimate in under a minute — the same way buyers actually value small businesses.</p>
+      <ul class="trust">
+        <li><span class="diamond"></span><span>Built for home-services, trades, and local businesses</span></li>
+        <li><span class="diamond"></span><span>Uses real seller's-cash-flow (SDE) multiples — not a random guess</span></li>
+        <li><span class="diamond"></span><span>No broker, no sales call, no pressure to sell anything</span></li>
+      </ul>
+      <p class="microcopy">Your answers are private. We'll email your estimate and, only if you want it, the occasional note on getting the most for a business like yours.</p>
+    </div>
+
+    <div class="card">
+      <!-- FORM -->
+      <form id="calc" novalidate>
+        <h2>Estimate my value</h2>
+        <p class="step">Takes about 60 seconds.</p>
+
+        <div class="field">
+          <label for="industry">Industry</label>
+          <select id="industry" name="industry" required>
+            <option value="">Select your industry…</option>
+            <option value="home">Home services (garage doors, pest control, cleaning)</option>
+            <option value="commercial">Commercial services / electrical</option>
+            <option value="waste">Waste &amp; hauling</option>
+            <option value="msp">Managed IT / MSP</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="revenue">Annual revenue</label>
+            <div class="money"><input id="revenue" name="revenue" type="text" inputmode="numeric" placeholder="1,200,000" required></div>
+          </div>
+          <div class="field">
+            <label for="sde">Owner cash flow <span class="hint">(SDE)</span></label>
+            <div class="money"><input id="sde" name="sde" type="text" inputmode="numeric" placeholder="300,000" required></div>
+          </div>
+        </div>
+        <p class="gate-note" style="margin:-6px 0 14px">Owner cash flow (SDE) = your net profit + your salary + owner perks + one-time costs. A rough number is fine.</p>
+
+        <div class="field">
+          <label for="owner">How dependent is the business on you?</label>
+          <select id="owner" name="owner_dependence" required>
+            <option value="">Select…</option>
+            <option value="independent">It runs well without me</option>
+            <option value="some">Somewhat — I'm involved but not essential</option>
+            <option value="dependent">Very — it really depends on me</option>
+          </select>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="recurring">Recurring revenue</label>
+            <select id="recurring" name="recurring" required>
+              <option value="">Select…</option>
+              <option value="high">Mostly recurring / contracts</option>
+              <option value="some">Some recurring</option>
+              <option value="low">Mostly one-off jobs</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="trend">Revenue trend</label>
+            <select id="trend" name="trend" required>
+              <option value="">Select…</option>
+              <option value="growing">Growing</option>
+              <option value="steady">Steady</option>
+              <option value="declining">Declining</option>
+            </select>
+          </div>
+        </div>
+
+        <hr class="divider">
+        <p class="gate-note">Where should we send your estimate?</p>
+        <div class="row2">
+          <div class="field">
+            <label for="name">First name</label>
+            <input id="name" name="name" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+
+        <input type="hidden" name="_subject" value="New business valuation lead">
+        <input type="hidden" name="source" value="Business Valuation Tool">
+        <input type="hidden" id="est_range" name="estimate_range" value="">
+        <input type="hidden" id="est_mult" name="implied_multiple" value="">
+
+        <button type="submit" id="submitBtn">Reveal my estimate <span class="arrow">→</span></button>
+        <p class="err" id="err"></p>
+        <p class="privacy">We never share or sell your details. Unsubscribe anytime.</p>
+      </form>
+
+      <!-- RESULT -->
+      <div class="result" id="result">
+        <p class="eyebrow">Your estimated value</p>
+        <div class="range" id="rangeOut">—</div>
+        <p class="mult" id="multOut"></p>
+        <p class="interp" id="interpOut"></p>
+        <div class="levers" id="leversBox">
+          <h3>What could raise this number</h3>
+          <ul id="leversList"></ul>
+        </div>
+        <a class="cta" href="https://cdhgrp.com/#contact">Talk to a real buyer — no pressure <span>→</span></a>
+        <span class="secondary">Prefer to read first? <a href="https://cdhgrp.com/guide/">Get our free Exit Guide →</a></span>
+        <button type="button" class="recalc" id="recalc">← Start over</button>
+        <p class="disclaimer">This is a rough, automated estimate for educational purposes only — not a formal appraisal, offer, or financial advice. Real-world value depends on many factors this tool can't see. For a real number, talk to a qualified advisor or a serious buyer.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<footer>
+  <div class="foot-inner">
+    <span class="mono">CDH · GROUP</span>
+    <span>People-first capital · <a href="https://cdhgrp.com/">cdhgrp.com</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var FORMSPREE = "https://formspree.io/f/xgojqnoz";
+  var form = document.getElementById('calc');
+  var result = document.getElementById('result');
+  var err = document.getElementById('err');
+  var btn = document.getElementById('submitBtn');
+
+  var BASE = {home:3.0, commercial:3.5, waste:3.75, msp:4.25, other:3.0};
+  var CEIL = {home:4.25, commercial:4.75, waste:5.25, msp:6.0, other:4.25};
+  var FLOOR = 1.8;
+
+  function num(v){ return parseFloat(String(v).replace(/[^0-9.]/g,'')) || 0; }
+  function money(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+  function roundTo(n, step){ return Math.round(n/step)*step; }
+
+  // live comma formatting on money inputs
+  ['revenue','sde'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('input', function(){
+      var digits = el.value.replace(/[^0-9]/g,'');
+      el.value = digits ? parseInt(digits,10).toLocaleString('en-US') : '';
+    });
+  });
+
+  function compute(){
+    var ind = form.industry.value;
+    var sde = num(form.sde.value);
+    var mult = BASE[ind];
+    // size adjustment
+    if(sde > 1000000) mult += 0.4;
+    else if(sde >= 500000) mult += 0.2;
+    else if(sde >= 250000) mult += 0.05;
+    else mult -= 0.15;
+    // owner dependence
+    mult += {independent:0.4, some:0, dependent:-0.4}[form.owner_dependence.value];
+    // recurring
+    mult += {high:0.4, some:0.2, low:0}[form.recurring.value];
+    // trend
+    mult += {growing:0.25, steady:0, declining:-0.35}[form.trend.value];
+    // clamp
+    mult = Math.max(FLOOR, Math.min(CEIL[ind], mult));
+    var lowMult = Math.max(FLOOR, mult - 0.4);
+    var highMult = mult + 0.4;
+    var step = sde >= 500000 ? 25000 : 5000;
+    return {
+      low: roundTo(sde*lowMult, step),
+      high: roundTo(sde*highMult, step),
+      mid: mult,
+      sde: sde
+    };
+  }
+
+  function levers(){
+    var out = [];
+    if(form.owner_dependence.value === 'dependent')
+      out.push('Reduce how much the business depends on you day-to-day — this is the single biggest driver of value.');
+    if(form.recurring.value === 'low')
+      out.push('Add recurring or contract revenue so income is predictable, not one-off.');
+    if(form.trend.value === 'declining')
+      out.push('Stabilize the revenue trend — buyers price the direction, not just the number.');
+    if(num(form.sde.value) < 250000)
+      out.push('Growing your owner cash flow lifts both the number and the multiple applied to it.');
+    if(out.length === 0)
+      out.push('Your business already has many of the traits buyers pay a premium for. Keeping the team, systems, and books clean protects that value.');
+    return out.slice(0,3);
+  }
+
+  function showResult(r){
+    document.getElementById('rangeOut').textContent = money(r.low) + ' – ' + money(r.high);
+    document.getElementById('multOut').textContent = '≈ ' + (r.mid).toFixed(1) + '× your owner cash flow (SDE)';
+    document.getElementById('interpOut').textContent =
+      'For a business like yours, buyers typically pay somewhere in this range. Where you land depends on the details below — and a serious buyer will look at all of them.';
+    var ul = document.getElementById('leversList');
+    ul.innerHTML = '';
+    levers().forEach(function(t){ var li=document.createElement('li'); li.textContent=t; ul.appendChild(li); });
+    form.style.display = 'none';
+    result.style.display = 'block';
+    result.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    err.style.display = 'none';
+    // validation
+    var required = ['industry','revenue','sde','owner_dependence','recurring','trend','name','email'];
+    for(var i=0;i<required.length;i++){
+      if(!form[required[i]].value){ err.textContent='Please fill in every field so we can estimate accurately.'; err.style.display='block'; return; }
+    }
+    if(num(form.sde.value) <= 0){ err.textContent='Please enter your annual owner cash flow (SDE).'; err.style.display='block'; return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email.value)){ err.textContent='Please enter a valid email address.'; err.style.display='block'; return; }
+
+    var r = compute();
+    document.getElementById('est_range').value = money(r.low) + ' – ' + money(r.high);
+    document.getElementById('est_mult').value = (r.mid).toFixed(1) + 'x';
+
+    btn.disabled = true; btn.innerHTML = 'Calculating…';
+
+    fetch(FORMSPREE, {
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body: new FormData(form)
+    }).then(function(res){
+      showResult(r); // reveal regardless; lead captured on success
+    }).catch(function(){
+      showResult(r); // network hiccup — still show the user their estimate
+    });
+  });
+
+  document.getElementById('recalc').addEventListener('click', function(){
+    result.style.display='none';
+    form.style.display='block';
+    btn.disabled=false; btn.innerHTML='Reveal my estimate <span class="arrow">→</span>';
+    form.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+})();
+</script>
+
+</body>
+</html>
