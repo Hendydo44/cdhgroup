@@ -162,14 +162,17 @@
       return;
     }
     btn.disabled = true; btn.innerHTML = 'Sending…';
-    var done = false;
-    function go(){ if(!done){ done = true; window.location.href = 'thanks/'; } }
-    fetch(form.action, {
-      method: 'POST',
-      headers: {'Accept': 'application/json'},
-      body: new FormData(form)
-    }).then(go).catch(go);
-    setTimeout(go, 2500); // safety net so the user always reaches the download page
+    // keepalive lets the submission complete in the background even after we navigate away,
+    // so we can redirect to the branded download page instantly.
+    try {
+      fetch(form.action, {
+        method: 'POST',
+        headers: {'Accept': 'application/json'},
+        body: new FormData(form),
+        keepalive: true
+      });
+    } catch(e) {}
+    window.location.href = 'thanks/';
   });
 })();
 </script>
